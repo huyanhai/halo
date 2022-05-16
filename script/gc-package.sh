@@ -42,7 +42,7 @@ EOF
 # writed package.json
 cat > $DIR_NAME/package.json <<EOF
 {
-  "name": "@admin/$NAME",
+  "name": "@admin-cl/$NAME",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -55,3 +55,4 @@ cat > $DIR_NAME/package.json <<EOF
 
 EOF
 
+echo "🎉 Generate Success"
