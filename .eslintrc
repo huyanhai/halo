@@ -3,13 +3,14 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
+  "parser": "vue-eslint-parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "parser": "@typescript-eslint/parser",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["vue", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error"
   }

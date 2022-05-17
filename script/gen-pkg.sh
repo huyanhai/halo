@@ -43,12 +43,7 @@ EOF
 cat > $DIR_NAME/package.json <<EOF
 {
   "name": "@admin-cl/$NAME",
-  "version": "1.0.0",
-  "description": "",
   "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC"
 }

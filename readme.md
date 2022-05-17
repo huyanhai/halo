@@ -9,11 +9,11 @@ pnpm init
 # 全局依赖管理
 
 ```
-pnpm [install | remove] [package name] -w
+pnpm [install | remove] <package_name> -w
 ```
 
 # 指定 packages 依赖管理
 
 ```
-pnpm [install | remove] [package name] --filter @admim-cl/[packages name]
+pnpm [install | remove] <package_name> --filter @admim-cl/<workspace_name>
 ```

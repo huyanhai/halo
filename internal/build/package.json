@@ -1,0 +1,12 @@
+{
+  "name": "@admin-cl/build",
+  "main": "index.ts",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "gulp --require sucrase/register/ts -f gulpfile.ts"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

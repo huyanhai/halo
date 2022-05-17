@@ -12,18 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "lib":[
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+    "lib": ["DOM", "DOM.Iterable"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["packages", "typings"],
+  "exclude": ["node_modules"]
 }

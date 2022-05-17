@@ -10,7 +10,12 @@
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
     "lint": "eslint --fix ./src --ext .js,.ts",
-    "gc-pkg": "bash script/gc-package.sh"
+    "gen": "bash script/gen.sh",
+    "gen-pkg": "bash script/gen-pkg.sh",
+    "esno": "esno ./packages/components/index.ts",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "build": "pnpm run -C internal/build start"
   },
   "repository": {
     "type": "git",
@@ -23,25 +28,36 @@
   },
   "homepage": "https://github.com/huyanhai/base-templates#readme",
   "devDependencies": {
+    "@admin-cl/build": "workspace:*",
+    "@admin-cl/components": "workspace:*",
+    "@admin-cl/constants": "workspace:*",
+    "@admin-cl/utils": "workspace:*",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
-    "esno": "^0.15.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "esno": "0.14.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "minimist": "^1.2.6",
     "prettier": "^2.6.2",
-    "shelljs": "^0.8.5"
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "sucrase": "^3.21.0"
+  },
+  "dependencies": {
+    "vitest": "^0.12.6",
+    "vue": "^3.2.33"
   },
   "lint-staged": {
     "*.{less,scss}": [
       "stylelint --config  ./.stylelintrc --fix"
     ],
-    "*.{ts,js}": [
+    "*.{ts,js,tsx}": [
       "npm run lint",
       "prettier --write"
     ]
