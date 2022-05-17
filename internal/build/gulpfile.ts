@@ -1,11 +1,8 @@
-import { series } from 'gulp';
+import { series, parallel } from 'gulp';
+import { buildModules } from './src/rollup';
 
-export const move = () => {
-  console.log('move');
+const test = (cb) => {
+  cb();
 };
 
-const copyFiles = () => {
-  console.log('start');
-};
-
-export default series(copyFiles);
+export default series(test, parallel(buildModules));
