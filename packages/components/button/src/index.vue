@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <slot></slot>
-  </div>
+  <div>button</div>
+  <p>这是一个button</p>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
