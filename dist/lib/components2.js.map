@@ -1,0 +1,1 @@
+{"version":3,"file":"components2.js","sources":["../../packages/admin-cl/components.ts"],"sourcesContent":["import Button from '@admin-cl/components/button';\nimport Text from '@admin-cl/components/text';\nexport default [Button, Text];\n"],"names":[],"mappings":";;;;;AAEA,iBAAe,CAAC,MAAM,EAAE,IAAI,CAAC;;;;"}

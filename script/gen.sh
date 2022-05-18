@@ -71,7 +71,7 @@ const AXIOM = 'Rem is the best girl';
 
 describe('$NORMALIZED_NAME.vue', () => {
   test('render test', () => {
-    const wrapper = mount(Button, {
+    const wrapper = mount($NORMALIZED_NAME, {
       slots: {
         default: AXIOM
       }

@@ -1,0 +1,1 @@
+{"version":3,"file":"index2.mjs","sources":["../../../packages/utils/index.ts"],"sourcesContent":["export default () => {\n  console.log('utils');\n};\n"],"names":[],"mappings":"AAAA,YAAe,MAAM;AACrB,EAAE,OAAO,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC;AACvB,CAAC;;;;"}
