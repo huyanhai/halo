@@ -25,7 +25,7 @@ export const buildConfig = {
     ext: 'mjs',
     output: {
       name: 'es',
-      path: resolve('../dist', 'es')
+      path: resolve('../../dist', 'es')
     },
     bundle: {
       path: `admin-cl/es`
@@ -37,7 +37,7 @@ export const buildConfig = {
     ext: 'js',
     output: {
       name: 'lib',
-      path: resolve('../dist', 'lib')
+      path: resolve('../../dist', 'lib')
     },
     bundle: {
       path: `admin-cl/lib`
@@ -48,13 +48,11 @@ export const buildConfig = {
 export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
-      cwd: resolve('../../packages/components'),
+      cwd: resolve('../../packages'),
       absolute: true,
       onlyFiles: true
     })
   );
-
-  console.log(input);
 
   const bundle = await rollup({
     input,
@@ -77,6 +75,7 @@ export const buildModules = async () => {
         }
       })
     ],
+    external: ['vue', '@vue'],
     treeshake: false
   });
 
@@ -89,7 +88,7 @@ export const buildModules = async () => {
             dir: config.output.path,
             exports: module === 'cjs' ? 'named' : undefined,
             preserveModules: true,
-            preserveModulesRoot: 'packages',
+            preserveModulesRoot: resolve('../../packages/admin-cl'),
             sourcemap: true,
             entryFileNames: `[name].${config.ext}`
           };

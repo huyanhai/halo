@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
-    "lint": "eslint --fix ./src --ext .js,.ts",
+    "lint": "eslint --fix . --ext .js,.ts,.tsx",
     "gen": "bash script/gen.sh",
     "gen-pkg": "bash script/gen-pkg.sh",
     "esno": "esno ./packages/components/index.ts",

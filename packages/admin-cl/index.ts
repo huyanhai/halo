@@ -1,3 +1,1 @@
-export default () => {
-  console.log('admin-cl');
-};
+export * from './installer';

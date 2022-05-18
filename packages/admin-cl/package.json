@@ -2,6 +2,7 @@
   "name": "admin-cl",
   "main": "index.ts",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "version": "1.0.0"
 }
 
