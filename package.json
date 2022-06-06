@@ -15,8 +15,9 @@
     "esno": "esno ./packages/components/index.ts",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
-    "build": "pnpm run -C internal/build start",
-    "test": "pnpm run -C demo dev"
+    "build": "pnpm run -C internal/build start && pnpm run build:theme",
+    "build:theme": "pnpm run -C packages/theme build",
+    "demo": "pnpm run -C demo dev"
   },
   "repository": {
     "type": "git",
@@ -42,12 +43,16 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.7.1",
     "esno": "0.14.0",
+    "gulp": "^4.0.2",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "minimist": "^1.2.6",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
+    "sass": "^1.52.2",
     "shelljs": "^0.8.5",
+    "stylelint": "^14.8.5",
+    "stylelint-config-standard": "^25.0.0",
     "sucrase": "^3.21.0",
     "typescript": "^4.6.4"
   },

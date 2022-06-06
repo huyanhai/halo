@@ -1,6 +1,7 @@
 <template>
-  <div>button</div>
-  <p>这是一个button</p>
+  <button class="cl-button">
+    <slot></slot>
+  </button>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';

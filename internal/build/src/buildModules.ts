@@ -1,4 +1,4 @@
-import type { OutputOptions } from 'rollup';
+import type { OutputOptions, ModuleFormat } from 'rollup';
 
 import { rollup } from 'rollup';
 import { resolve } from 'path';
@@ -84,7 +84,7 @@ export const buildModules = async () => {
       .map(([module, config]): OutputOptions => {
         {
           return {
-            // format: config.format,
+            format: config.format as ModuleFormat,
             dir: config.output.path,
             exports: module === 'cjs' ? 'named' : undefined,
             preserveModules: true,

@@ -1,17 +1,15 @@
-import { defineComponent, createElementVNode, openBlock, createElementBlock, Fragment } from 'vue';
+import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue';
 import { clPrefixName } from '../../../constants/index2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
 const _sfc_main = defineComponent({
   name: clPrefixName + "Button"
 });
-const _hoisted_1 = /* @__PURE__ */ createElementVNode("div", null, "button", -1);
-const _hoisted_2 = /* @__PURE__ */ createElementVNode("p", null, "\u8FD9\u662F\u4E00\u4E2Abutton", -1);
+const _hoisted_1 = { class: "cl-button" };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock(Fragment, null, [
-    _hoisted_1,
-    _hoisted_2
-  ], 64);
+  return openBlock(), createElementBlock("button", _hoisted_1, [
+    renderSlot(_ctx.$slots, "default")
+  ]);
 }
 var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
 

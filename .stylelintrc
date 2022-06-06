@@ -6,7 +6,15 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["mixin", "extend", "content", "each", "if", "include"]
+        "ignoreAtRules": [
+          "mixin",
+          "extend",
+          "content",
+          "each",
+          "if",
+          "include",
+          "use"
+        ]
       }
     ],
     "media-feature-name-no-unknown": [

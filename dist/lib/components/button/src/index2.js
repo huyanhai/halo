@@ -1,19 +1,21 @@
-import { defineComponent, createElementVNode, openBlock, createElementBlock, Fragment } from 'vue';
-import { clPrefixName } from '../../../constants/index2.js';
-import _export_sfc from '../../../_virtual/plugin-vue_export-helper.js';
+'use strict';
 
-const _sfc_main = defineComponent({
-  name: clPrefixName + "Button"
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var vue = require('vue');
+var index = require('../../../constants/index2.js');
+var pluginVue_exportHelper = require('../../../_virtual/plugin-vue_export-helper.js');
+
+const _sfc_main = vue.defineComponent({
+  name: index.clPrefixName + "Button"
 });
-const _hoisted_1 = /* @__PURE__ */ createElementVNode("div", null, "button", -1);
-const _hoisted_2 = /* @__PURE__ */ createElementVNode("p", null, "\u8FD9\u662F\u4E00\u4E2Abutton", -1);
+const _hoisted_1 = { class: "cl-button" };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock(Fragment, null, [
-    _hoisted_1,
-    _hoisted_2
-  ], 64);
+  return vue.openBlock(), vue.createElementBlock("button", _hoisted_1, [
+    vue.renderSlot(_ctx.$slots, "default")
+  ]);
 }
-var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
+var Button = /* @__PURE__ */ pluginVue_exportHelper["default"](_sfc_main, [["render", _sfc_render], ["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
 
-export { Button as default };
+exports["default"] = Button;
 //# sourceMappingURL=index2.js.map

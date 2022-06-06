@@ -1,7 +1,11 @@
-import _export_sfc from '../../../_virtual/plugin-vue_export-helper.js';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var pluginVue_exportHelper = require('../../../_virtual/plugin-vue_export-helper.js');
 
 const _sfc_main = {};
-var index = /*#__PURE__*/_export_sfc(_sfc_main, [['__file',"/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
+var index = /*#__PURE__*/pluginVue_exportHelper["default"](_sfc_main, [['__file',"/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
 
-export { index as default };
+exports["default"] = index;
 //# sourceMappingURL=index.js.map

@@ -1,3 +1,12 @@
-export { install } from './installer2.js';
-export { version } from './constants/index2.js';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var installer = require('./installer2.js');
+var index = require('./constants/index2.js');
+
+
+
+exports.install = installer.install;
+exports.version = index.version;
 //# sourceMappingURL=installer.js.map

@@ -1,4 +1,4 @@
-import './index2.mjs';
-export { install } from './installer2.mjs';
-export { version } from './constants/index2.mjs';
+export { install, version } from './index2.mjs';
+import * as installer from './installer2.mjs';
+export { installer as default };
 //# sourceMappingURL=index.mjs.map
