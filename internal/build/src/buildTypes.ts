@@ -1,52 +1,82 @@
+import type { SourceFile } from 'ts-morph';
 import { Project } from 'ts-morph';
-import { resolve, dirname, basename } from 'path';
-import { mkdirSync, writeFileSync } from 'fs';
+import { cwd } from 'process';
+import { resolve, dirname, relative } from 'path';
+import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import glob from 'fast-glob';
+import { parse, compileScript } from 'vue/compiler-sfc';
 
-const TSCONFIG_PATH = resolve('../../', 'tsconfig.json');
+const rootPath = resolve('../../');
+const distPath = resolve(rootPath, 'dist');
+const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 
 export const buildTypes = async () => {
   const project = new Project({
-    tsConfigFilePath: TSCONFIG_PATH,
-    skipAddingFilesFromTsConfig: true
+    tsConfigFilePath: tsconfigPath,
+    compilerOptions: {
+      preserveSymlinks: false,
+      outDir: distPath
+    }
   });
 
-  console.log(
-    '===',
-    await glob(resolve('../../', 'packages/**/*.ts'), {
-      ignore: ['**/node_modules/**', '**/__tests__/**']
-    })
-  );
+  const filePaths = await glob(['packages/**/*.{ts?(x),vue}'], {
+    ignore: ['**/node_modules/**', '**/__tests__/**', 'gulpfile'],
+    onlyFiles: true,
+    absolute: true,
+    cwd: rootPath
+  });
+  const sourceFiles: SourceFile[] = [];
 
-  console.log(project, mkdirSync, writeFileSync, dirname, basename);
+  filePaths.map((filepath) => {
+    if (filepath.endsWith('.vue')) {
+      const fileCtx = readFileSync(filepath, 'utf-8');
+      const sfc = parse(fileCtx);
+      const { script, scriptSetup } = sfc.descriptor;
 
-  //   const files = [
-  //     project.addSourceFilesAtPaths(
-  //       await glob(resolve('../../', 'packages/**/*{.ts}'))
-  //     )
-  //   ];
+      if (script || scriptSetup) {
+        let content = script?.content || '';
 
-  //   mkdirSync(resolve('../../', `dist`));
+        if (scriptSetup) {
+          const ctx = compileScript(sfc.descriptor, {
+            id: 'xxx'
+          });
+          content += ctx.content || '';
+        }
 
-  //   files.map((item) => {
-  //     console.log(item);
+        const file = `${relative(cwd(), filepath)}.${
+          scriptSetup?.lang || script?.lang || 'js'
+        }`;
 
-  // const emitOutput = item.getEmitOutput();
-  // const emitFiles = emitOutput.getOutputFiles();
+        const source = project.createSourceFile(file, content);
+        sourceFiles.push(source);
+      }
+    } else {
+      const source = project.addSourceFileAtPath(filepath);
+      sourceFiles.push(source);
+    }
+  });
 
-  // const subTasks = emitFiles.map(async (outputFile) => {
-  //   const filepath = outputFile.getFilePath();
+  sourceFiles.map((sourceFile) => {
+    const emitOutput = sourceFile.getEmitOutput();
+    const emitFiles = emitOutput.getOutputFiles();
 
-  //   console.log(filepath);
+    if (emitFiles.length === 0) {
+      console.log('没有可写的上下文');
+    }
 
-  //   //   mkdirSync(resolve('../../', `dist/${basename(filepath)}`));
-  //   if (filepath.endsWith('.ts')) {
-  //     writeFileSync(
-  //       resolve('../../', `dist/${basename(filepath)}`),
-  //       outputFile.getText(),
-  //       'utf8'
-  //     );
-  //   }
-  // });
-  //   });
+    emitFiles.map((output) => {
+      const ctx = output.getText();
+      const filePath = output.getFilePath();
+
+      mkdirSync(dirname(filePath), {
+        recursive: true
+      });
+
+      if (filePath.endsWith('.ts')) {
+        console.log(filePath, ctx);
+
+        writeFileSync(filePath, ctx);
+      }
+    });
+  });
 };

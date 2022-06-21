@@ -15,7 +15,7 @@
     "esno": "esno ./packages/components/index.ts",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
-    "build": "pnpm run -C internal/build start && pnpm run build:theme",
+    "build": "pnpm run -C internal/build start",
     "build:theme": "pnpm run -C packages/theme build",
     "demo": "pnpm run -C demo dev"
   },
