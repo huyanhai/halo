@@ -6,8 +6,8 @@ import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import glob from 'fast-glob';
 import { parse, compileScript } from 'vue/compiler-sfc';
 
-const rootPath = resolve('../../');
-const distPath = resolve(rootPath, 'dist');
+import { rootPath, distPath } from './constants';
+
 const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 
 export const buildTypes = async () => {
@@ -15,7 +15,7 @@ export const buildTypes = async () => {
     tsConfigFilePath: tsconfigPath,
     compilerOptions: {
       preserveSymlinks: false,
-      outDir: distPath
+      outDir: resolve(distPath, 'types')
     }
   });
 
@@ -60,6 +60,8 @@ export const buildTypes = async () => {
     const emitOutput = sourceFile.getEmitOutput();
     const emitFiles = emitOutput.getOutputFiles();
 
+    console.log(emitOutput, emitFiles);
+
     if (emitFiles.length === 0) {
       console.log('没有可写的上下文');
     }
@@ -73,8 +75,6 @@ export const buildTypes = async () => {
       });
 
       if (filePath.endsWith('.ts')) {
-        console.log(filePath, ctx);
-
         writeFileSync(filePath, ctx);
       }
     });

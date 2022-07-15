@@ -11,8 +11,9 @@ import json from '@rollup/plugin-json';
 import esbuild from 'rollup-plugin-esbuild';
 import glob from 'fast-glob';
 
+import { fullPath, packagesPath, excludes, distPath } from './constants';
+
 export const excludeFiles = (files: string[]) => {
-  const excludes = ['node_modules', 'test', 'mock', 'gulpfile', 'dist'];
   return files.filter(
     (path) => !excludes.some((exclude) => path.includes(exclude))
   );
@@ -25,10 +26,7 @@ export const buildConfig = {
     ext: 'mjs',
     output: {
       name: 'es',
-      path: resolve('../../dist', 'es')
-    },
-    bundle: {
-      path: `admin-cl/es`
+      path: resolve(distPath, 'es')
     }
   },
   cjs: {
@@ -37,10 +35,7 @@ export const buildConfig = {
     ext: 'js',
     output: {
       name: 'lib',
-      path: resolve('../../dist', 'lib')
-    },
-    bundle: {
-      path: `admin-cl/lib`
+      path: resolve(distPath, 'lib')
     }
   }
 };
@@ -48,7 +43,7 @@ export const buildConfig = {
 export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
-      cwd: resolve('../../packages'),
+      cwd: packagesPath,
       absolute: true,
       onlyFiles: true
     })
@@ -75,8 +70,7 @@ export const buildModules = async () => {
         }
       })
     ],
-    external: ['vue', '@vue'],
-    treeshake: false
+    external: ['vue', '@vue']
   });
 
   await Promise.all(
@@ -88,7 +82,7 @@ export const buildModules = async () => {
             dir: config.output.path,
             exports: module === 'cjs' ? 'named' : undefined,
             preserveModules: true,
-            preserveModulesRoot: resolve('../../packages/admin-cl'),
+            preserveModulesRoot: fullPath,
             sourcemap: true,
             entryFileNames: `[name].${config.ext}`
           };

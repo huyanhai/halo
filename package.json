@@ -2,14 +2,17 @@
   "name": "admin-cl",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/lib/index.js",
+  "module": "dist/es/index.mjs",
+  "unpkg": "dist/index.full.js",
+  "jsdelivr": "dist/index.full.js",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
-    "lint": "eslint --fix . --ext .js,.ts,.tsx",
+    "lint": "eslint --fix . --ext .js,.ts,.tsx,.vue",
     "gen": "bash script/gen.sh",
     "gen-pkg": "bash script/gen-pkg.sh",
     "esno": "esno ./packages/components/index.ts",
@@ -66,7 +69,7 @@
     "*.{less,scss}": [
       "stylelint --config  ./.stylelintrc --fix"
     ],
-    "*.{ts,js,tsx}": [
+    "*.{ts,js,tsx,vue}": [
       "npm run lint",
       "prettier --write"
     ]

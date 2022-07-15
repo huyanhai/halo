@@ -1,6 +1,6 @@
 import { rollup } from 'rollup';
 import { resolve } from 'path';
-import type { OutputOptions } from 'rollup';
+import type { OutputOptions, ModuleFormat } from 'rollup';
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -9,9 +9,11 @@ import esbuild from 'rollup-plugin-esbuild';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
+import { fullPath, entryName, banner, distPath } from './constants';
+
 export const buildFull = async () => {
   const bundle = await rollup({
-    input: resolve('../../packages/admin-cl/index.ts'),
+    input: resolve(fullPath, 'index.ts'),
     plugins: [
       vue({
         isProduction: true
@@ -30,28 +32,27 @@ export const buildFull = async () => {
         }
       })
     ],
-    external: ['vue', '@vue'],
-    treeshake: true
+    external: ['vue', '@vue']
   });
 
   await Promise.all(
     [
       {
-        format: 'umd',
-        file: resolve('../../dist/admin/index.full.min.js'),
-        exports: 'named',
-        name: 'AdminCl',
+        format: 'umd' as ModuleFormat,
+        file: resolve(distPath, 'index.full.js'),
+        exports: 'named' as 'default' | 'named' | 'none' | 'auto',
+        name: entryName,
         sourcemap: true,
-        banner: `/**xxx_v1**/`,
+        banner: banner,
         globals: {
           vue: 'Vue'
         }
       },
       {
-        format: 'esm',
-        file: resolve('../../dist/admin/index.full.mjs'),
+        format: 'esm' as ModuleFormat,
+        file: resolve(distPath, 'index.full.mjs'),
         sourcemap: false,
-        banner: `/**xxx_v1**/`
+        banner: banner
       }
     ].map((item: OutputOptions) => {
       bundle.write(item);
