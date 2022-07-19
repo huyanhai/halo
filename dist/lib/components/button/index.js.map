@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":";;;;;;;;;"}
+{"version":3,"file":"index.js","sources":["../../../../packages/components/button/index.ts"],"sourcesContent":["import { App } from 'vue';\nimport Button from './src/index.vue';\n\nButton.install = (app: App): void => {\n  app.component(Button.name, Button);\n};\n\nexport default Button;\n"],"names":["Button"],"mappings":";;;;;;AACAA,gBAAM,CAAC,OAAO,GAAG,CAAC,GAAG,KAAK;AAC1B,EAAE,GAAG,CAAC,SAAS,CAACA,gBAAM,CAAC,IAAI,EAAEA,gBAAM,CAAC,CAAC;AACrC,CAAC;;;;"}

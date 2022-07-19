@@ -1,1 +1,1 @@
-{"version":3,"file":"index.mjs","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.mjs","sources":["../../../packages/utils/index.ts"],"sourcesContent":["const name: string = '123';\n\nexport type TTest = {\n  name: string;\n};\n\nexport default () => {\n  console.log(name);\n};\n"],"names":[],"mappings":"AAAA,MAAM,IAAI,GAAG,KAAK,CAAC;AACnB,YAAe,MAAM;AACrB,EAAE,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,CAAC;AACpB,CAAC;;;;"}

@@ -1,2 +1,7 @@
-export { default } from './index2.mjs';
+const name = "123";
+var index = () => {
+  console.log(name);
+};
+
+export { index as default };
 //# sourceMappingURL=index.mjs.map

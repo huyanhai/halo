@@ -15,6 +15,11 @@
     "lib": ["DOM", "DOM.Iterable"],
     "declaration": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "include": ["packages", "typings"],
   "exclude": ["node_modules"]
 }

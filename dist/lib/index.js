@@ -2,12 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index = require('./index2.js');
-var installer = require('./installer2.js');
+var installer = require('./installer.js');
+var index = require('./constants/index.js');
 
+const install = installer.install;
+const version = index.version;
 
-
-exports.install = index.install;
-exports.version = index.version;
 exports["default"] = installer;
+exports.install = install;
+exports.version = version;
 //# sourceMappingURL=index.js.map

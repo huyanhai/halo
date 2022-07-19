@@ -56,11 +56,9 @@ export const buildTypes = async () => {
     }
   });
 
-  sourceFiles.map((sourceFile) => {
+  sourceFiles.map(async (sourceFile) => {
     const emitOutput = sourceFile.getEmitOutput();
     const emitFiles = emitOutput.getOutputFiles();
-
-    console.log(emitOutput, emitFiles);
 
     if (emitFiles.length === 0) {
       console.log('没有可写的上下文');

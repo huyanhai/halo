@@ -12,18 +12,13 @@ const distBundle = path.resolve('../../dist', 'theme');
 // 构建样式
 function buildThemeChalk() {
   const sass = gulpSass(dartSass);
-  const noElPrefixFile = /(index|base|display)/;
   return src(path.resolve('./', 'src/*.scss'))
     .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
-    .pipe(
-      cleanCSS({}, (details) => {
-        console.log(details);
-      })
-    )
+    .pipe(cleanCSS({}, () => {}))
     .pipe(
       rename((path) => {
-        if (!noElPrefixFile.test(path.basename)) {
+        if (!['index'].includes(path.basename)) {
           path.basename = `cl-${path.basename}`;
         }
       })
@@ -43,9 +38,7 @@ export function copyThemeChalkSource() {
   );
 }
 
-export const build = parallel(
+export default parallel(
   copyThemeChalkSource,
   series(buildThemeChalk, copyThemeChalkBundle)
-);
-
-export default build;
+) as any;

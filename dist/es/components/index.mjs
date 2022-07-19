@@ -1,3 +1,3 @@
-import './button/index2.mjs';
-import './text/index2.mjs';
+import './button/index.mjs';
+import './text/index.mjs';
 //# sourceMappingURL=index.mjs.map

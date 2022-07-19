@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":";;;;;;;;;;;"}
+{"version":3,"file":"index.js","sources":["../../packages/admin-cl/index.ts"],"sourcesContent":["import * as installer from './installer';\n\nexport const install = installer.install;\nexport const version = installer.version;\n\nexport default installer;\n"],"names":["installer.install","installer.version"],"mappings":";;;;;;;AACY,MAAC,OAAO,GAAGA,kBAAkB;AAC7B,MAAC,OAAO,GAAGC;;;;;;"}

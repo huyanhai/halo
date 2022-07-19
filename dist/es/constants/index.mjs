@@ -1,2 +1,5 @@
-export { clPrefixName, version } from './index2.mjs';
+const clPrefixName = "Admin";
+const version = "1.0.0";
+
+export { clPrefixName, version };
 //# sourceMappingURL=index.mjs.map

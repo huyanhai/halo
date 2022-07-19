@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import DefineOptions from 'unplugin-vue-define-options/rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
+// import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import esbuild from 'rollup-plugin-esbuild';
 import glob from 'fast-glob';
@@ -61,7 +61,7 @@ export const buildModules = async () => {
       nodeResolve({
         extensions: ['.mjs', '.js', '.json', '.ts']
       }),
-      commonjs(),
+      // commonjs(),
       esbuild({
         sourceMap: true,
         target: 'es2018',

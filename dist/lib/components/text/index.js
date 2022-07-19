@@ -2,10 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./index2.js');
-var index = require('./src/index2.js');
+var index = require('./src/index.js');
 
-
+index["default"].install = (app) => {
+  app.component(index["default"].name, index["default"]);
+};
 
 exports["default"] = index["default"];
 //# sourceMappingURL=index.js.map

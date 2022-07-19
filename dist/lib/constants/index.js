@@ -2,10 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index = require('./index2.js');
+const clPrefixName = "Admin";
+const version = "1.0.0";
 
-
-
-exports.clPrefixName = index.clPrefixName;
-exports.version = index.version;
+exports.clPrefixName = clPrefixName;
+exports.version = version;
 //# sourceMappingURL=index.js.map

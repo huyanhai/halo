@@ -2,9 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index = require('./index2.js');
+const name = "123";
+var index = () => {
+  console.log(name);
+};
 
-
-
-exports["default"] = index["default"];
+exports["default"] = index;
 //# sourceMappingURL=index.js.map
