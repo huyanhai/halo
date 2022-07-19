@@ -2,14 +2,23 @@
   "name": "admin-cl",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/lib/index.js",
-  "module": "dist/es/index.mjs",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
-  "types": "dist/types",
-  "workspaces": [
-    "packages/*"
-  ],
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.mjs"
+    },
+    "./es": "./es/index.mjs",
+    "./lib": "./lib/index.js",
+    "./es/*.mjs": "./es/*.mjs",
+    "./es/*": "./es/*.mjs",
+    "./lib/*.js": "./lib/*.js",
+    "./lib/*": "./lib/*.js",
+    "./*": "./*"
+  },
   "scripts": {
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
@@ -18,7 +27,7 @@
     "gen-pkg": "bash script/gen-pkg.sh",
     "esno": "esno ./packages/components/index.ts",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
-    "clean:dist": "rimraf dist",
+    "clean:dist": "rm -rf dist",
     "build": "pnpm run -C internal/build start && pnpm run build:theme",
     "build:theme": "pnpm run -C packages/theme build",
     "demo": "pnpm run -C demo dev"

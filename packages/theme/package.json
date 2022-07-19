@@ -1,7 +1,7 @@
 {
   "name": "@admin-cl/theme",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "build": "gulp && pnpm run clean"
   },
   "devDependencies": {
