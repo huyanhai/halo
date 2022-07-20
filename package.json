@@ -6,6 +6,9 @@
   "module": "es/index.mjs",
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
+  "workspaces": [
+    "packages/*"
+  ],
   "exports": {
     ".": {
       "require": "./lib/index.js",
