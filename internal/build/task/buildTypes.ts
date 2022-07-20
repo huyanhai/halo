@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import glob from 'fast-glob';
 import { parse, compileScript } from 'vue/compiler-sfc';
 
-import { rootPath, distPath } from './constants';
+import { rootPath, distPath, packagesPath } from '../constants';
 
 const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 
@@ -15,16 +15,18 @@ export const buildTypes = async () => {
     tsConfigFilePath: tsconfigPath,
     compilerOptions: {
       preserveSymlinks: false,
-      outDir: resolve(distPath, 'types')
+      outDir: resolve(distPath, 'types'),
+      declaration: true
     }
   });
 
-  const filePaths = await glob(['packages/**/*.{ts?(x),vue}'], {
-    ignore: ['**/node_modules/**', '**/__tests__/**', 'gulpfile'],
+  const filePaths = await glob(['**/*.{ts?(x),vue}'], {
+    ignore: ['**/node_modules/**', '**/__tests__/**', '**/gulpfile.ts'],
     onlyFiles: true,
     absolute: true,
-    cwd: rootPath
+    cwd: packagesPath
   });
+
   const sourceFiles: SourceFile[] = [];
 
   filePaths.map((filepath) => {
@@ -67,6 +69,8 @@ export const buildTypes = async () => {
     emitFiles.map((output) => {
       const ctx = output.getText();
       const filePath = output.getFilePath();
+
+      console.log('filePath', filePath);
 
       mkdirSync(dirname(filePath), {
         recursive: true

@@ -5,9 +5,9 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { clPrefixName } from '@admin-cl/constants';
+import { prefix } from '@admin-cl/constants';
 export default defineComponent({
-  name: clPrefixName + 'Button'
+  name: prefix + 'Button'
 });
 </script>
 <script lang="ts" setup>

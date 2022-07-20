@@ -1,10 +1,10 @@
 import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue';
-import { clPrefixName } from '../../../constants/index.mjs';
+import { prefix } from '../../../constants/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
 const _hoisted_1 = { class: "cl-button" };
 const __default__ = defineComponent({
-  name: clPrefixName + "Button"
+  name: prefix + "Button"
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,

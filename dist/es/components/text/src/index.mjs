@@ -1,9 +1,9 @@
 import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue';
-import { clPrefixName } from '../../../constants/index.mjs';
+import { prefix } from '../../../constants/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
 const _sfc_main = defineComponent({
-  name: clPrefixName + "Text"
+  name: prefix + "Text"
 });
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", null, [

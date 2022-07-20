@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const clPrefixName = "Admin";
+const prefix = "Admin";
 const version = "1.0.0";
 
-exports.clPrefixName = clPrefixName;
+exports.prefix = prefix;
 exports.version = version;
 //# sourceMappingURL=index.js.map

@@ -11,7 +11,7 @@ import json from '@rollup/plugin-json';
 import esbuild from 'rollup-plugin-esbuild';
 import glob from 'fast-glob';
 
-import { fullPath, packagesPath, excludes, distPath } from './constants';
+import { fullEntryPath, packagesPath, excludes, distPath } from '../constants';
 
 export const excludeFiles = (files: string[]) => {
   return files.filter(
@@ -43,6 +43,7 @@ export const buildConfig = {
 export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
+      ignore: ['**/internal/**'],
       cwd: packagesPath,
       absolute: true,
       onlyFiles: true
@@ -72,6 +73,7 @@ export const buildModules = async () => {
     ],
     external: ['vue', '@vue']
   });
+  console.log('input', input);
 
   await Promise.all(
     Object.entries(buildConfig)
@@ -82,7 +84,7 @@ export const buildModules = async () => {
             dir: config.output.path,
             exports: module === 'cjs' ? 'named' : undefined,
             preserveModules: true,
-            preserveModulesRoot: fullPath,
+            preserveModulesRoot: fullEntryPath,
             sourcemap: true,
             entryFileNames: `[name].${config.ext}`
           };

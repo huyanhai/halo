@@ -1,7 +1,7 @@
 /********AdminCl********/
 import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue';
 
-const clPrefixName = "Admin";
+const prefix = "Admin";
 const version$1 = "1.0.0";
 
 var _export_sfc = (sfc, props) => {
@@ -14,7 +14,7 @@ var _export_sfc = (sfc, props) => {
 
 const _hoisted_1 = { class: "cl-button" };
 const __default__ = defineComponent({
-  name: clPrefixName + "Button"
+  name: prefix + "Button"
 });
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   ...__default__,
@@ -51,7 +51,7 @@ Button.install = (app) => {
 };
 
 const _sfc_main = defineComponent({
-  name: clPrefixName + "Text"
+  name: prefix + "Text"
 });
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", null, [

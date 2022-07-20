@@ -2,12 +2,9 @@
   "name": "admin-cl",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
-  "module": "es/index.mjs",
-  "unpkg": "dist/index.full.js",
-  "jsdelivr": "dist/index.full.js",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "internal/*"
   ],
   "exports": {
     ".": {
@@ -33,6 +30,7 @@
     "clean:dist": "rm -rf dist",
     "build": "pnpm run -C internal/build start && pnpm run build:theme",
     "build:theme": "pnpm run -C packages/theme build",
+    "publish": "bash script/publish.sh",
     "demo": "pnpm run -C demo dev"
   },
   "author": "",
@@ -67,6 +65,7 @@
     "sucrase": "^3.21.0",
     "ts-morph": "^15.1.0",
     "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.6.4"
   },
   "dependencies": {

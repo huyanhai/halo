@@ -5,11 +5,11 @@ import { basename } from 'path';
 import { resolve } from 'path';
 import glob from 'fast-glob';
 
-import { buildModules } from './src/buildModules';
-import { buildFull } from './src/buildFull';
-import { buildTypes } from './src/buildTypes';
+import { buildModules } from './task/buildModules';
+import { buildFull } from './task/buildFull';
+import { buildTypes } from './task/buildTypes';
 
-import { distPath } from './src/constants';
+import { distPath, packagesPath, projectsName } from './constants';
 
 const clean = () => {
   return spawn('pnpm', ['run', 'clean:dist'], {
@@ -22,7 +22,7 @@ const moveFile = async () => {
   const files = await glob(['*'], {
     onlyFiles: true,
     absolute: true,
-    cwd: resolve(distPath, 'types/admin-cl')
+    cwd: resolve(distPath, 'types', 'admin-cl')
   });
   files.map((file) => {
     moveSync(file, resolve(distPath, 'types', basename(file)));
@@ -34,6 +34,10 @@ const copyTypes = async () => {
   await moveFile();
   copySync(resolve(distPath, 'types'), resolve(distPath, 'es'));
   copySync(resolve(distPath, 'types'), resolve(distPath, 'lib'));
+  copySync(
+    resolve(packagesPath, projectsName, 'package.json'),
+    resolve(distPath, 'package.json')
+  );
 };
 
 export default series(

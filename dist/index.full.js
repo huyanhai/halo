@@ -5,7 +5,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.AdminCl = {}, global.Vue));
 })(this, (function (exports, vue) { 'use strict';
 
-  const clPrefixName = "Admin";
+  const prefix = "Admin";
   const version$1 = "1.0.0";
 
   var _export_sfc = (sfc, props) => {
@@ -18,7 +18,7 @@
 
   const _hoisted_1 = { class: "cl-button" };
   const __default__ = vue.defineComponent({
-    name: clPrefixName + "Button"
+    name: prefix + "Button"
   });
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     ...__default__,
@@ -55,7 +55,7 @@
   };
 
   const _sfc_main = vue.defineComponent({
-    name: clPrefixName + "Text"
+    name: prefix + "Text"
   });
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("div", null, [

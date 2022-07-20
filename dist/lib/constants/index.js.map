@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../../../packages/constants/index.ts"],"sourcesContent":["export const clPrefixName = 'Admin';\nexport const version = '1.0.0';\n"],"names":[],"mappings":";;;;AAAY,MAAC,YAAY,GAAG,QAAQ;AACxB,MAAC,OAAO,GAAG;;;;;"}
+{"version":3,"file":"index.js","sources":["../../../packages/constants/index.ts"],"sourcesContent":["export const prefix = 'Admin';\nexport const version = '1.0.0';\n"],"names":[],"mappings":";;;;AAAY,MAAC,MAAM,GAAG,QAAQ;AAClB,MAAC,OAAO,GAAG;;;;;"}
