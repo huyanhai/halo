@@ -10,5 +10,4 @@ export default defineComponent({
   name: prefix + 'Text'
 });
 </script>
-<script lang="ts" setup></script>
 <style></style>

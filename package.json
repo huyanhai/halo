@@ -1,7 +1,8 @@
 {
   "workspaces": [
     "packages/*",
-    "internal/*"
+    "internal/*",
+    "play"
   ],
   "scripts": {
     "prepare": "husky install",
