@@ -1,8 +1,9 @@
 /********AdminCl********/
 import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue';
 
+var version$1 = "0.0.2";
+
 const prefix = "Admin";
-const version$1 = "1.0.0";
 
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;

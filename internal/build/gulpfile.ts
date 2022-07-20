@@ -9,7 +9,11 @@ import { buildModules } from './task/buildModules';
 import { buildFull } from './task/buildFull';
 import { buildTypes } from './task/buildTypes';
 
-import { distPath, packagesPath, projectsName } from './constants';
+import {
+  distPath,
+  packagesPath,
+  projectsName
+} from '@admin-cl/build-constants';
 
 const clean = () => {
   return spawn('pnpm', ['run', 'clean:dist'], {

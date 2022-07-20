@@ -11,7 +11,12 @@ import json from '@rollup/plugin-json';
 import esbuild from 'rollup-plugin-esbuild';
 import glob from 'fast-glob';
 
-import { fullEntryPath, packagesPath, excludes, distPath } from '../constants';
+import {
+  fullEntryPath,
+  packagesPath,
+  excludes,
+  distPath
+} from '@admin-cl/build-constants';
 
 export const excludeFiles = (files: string[]) => {
   return files.filter(
@@ -73,7 +78,6 @@ export const buildModules = async () => {
     ],
     external: ['vue', '@vue']
   });
-  console.log('input', input);
 
   await Promise.all(
     Object.entries(buildConfig)

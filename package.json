@@ -1,24 +1,8 @@
 {
-  "name": "admin-cl",
-  "version": "1.0.0",
-  "description": "",
   "workspaces": [
     "packages/*",
     "internal/*"
   ],
-  "exports": {
-    ".": {
-      "require": "./lib/index.js",
-      "import": "./es/index.mjs"
-    },
-    "./es": "./es/index.mjs",
-    "./lib": "./lib/index.js",
-    "./es/*.mjs": "./es/*.mjs",
-    "./es/*": "./es/*.mjs",
-    "./lib/*.js": "./lib/*.js",
-    "./lib/*": "./lib/*.js",
-    "./*": "./*"
-  },
   "scripts": {
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
@@ -30,13 +14,13 @@
     "clean:dist": "rm -rf dist",
     "build": "pnpm run -C internal/build start && pnpm run build:theme",
     "build:theme": "pnpm run -C packages/theme build",
-    "publish": "bash script/publish.sh",
-    "demo": "pnpm run -C demo dev"
+    "publish": "bash script/publish.sh"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@admin-cl/build": "workspace:*",
+    "@admin-cl/build-constants":"workspace:*",
     "@admin-cl/components": "workspace:*",
     "@admin-cl/constants": "workspace:*",
     "@admin-cl/utils": "workspace:*",

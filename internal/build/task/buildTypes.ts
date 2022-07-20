@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import glob from 'fast-glob';
 import { parse, compileScript } from 'vue/compiler-sfc';
 
-import { rootPath, distPath, packagesPath } from '../constants';
+import { rootPath, distPath, packagesPath } from '@admin-cl/build-constants';
 
 const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 
@@ -69,8 +69,6 @@ export const buildTypes = async () => {
     emitFiles.map((output) => {
       const ctx = output.getText();
       const filePath = output.getFilePath();
-
-      console.log('filePath', filePath);
 
       mkdirSync(dirname(filePath), {
         recursive: true

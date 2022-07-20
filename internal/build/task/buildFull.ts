@@ -9,7 +9,12 @@ import esbuild from 'rollup-plugin-esbuild';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
-import { fullEntryPath, entryName, banner, distPath } from '../constants';
+import {
+  fullEntryPath,
+  entryName,
+  banner,
+  distPath
+} from '@admin-cl/build-constants';
 
 export const buildFull = async () => {
   const bundle = await rollup({

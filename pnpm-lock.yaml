@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@admin-cl/build': workspace:*
+      '@admin-cl/build-constants': workspace:*
       '@admin-cl/components': workspace:*
       '@admin-cl/constants': workspace:*
       '@admin-cl/utils': workspace:*
@@ -42,6 +43,7 @@ importers:
       vue: 3.2.33
     devDependencies:
       '@admin-cl/build': link:internal/build
+      '@admin-cl/build-constants': link:internal/build-constants
       '@admin-cl/components': link:packages/components
       '@admin-cl/constants': link:packages/constants
       '@admin-cl/utils': link:packages/utils
@@ -95,6 +97,9 @@ importers:
       rollup-plugin-esbuild: 4.9.1_7adqdep3dyb6q46ys4q2gte2am
       unplugin-vue-define-options: 0.6.2_7zr2sikw2h2wdd2cu2d6ftmm3u
       vite: 2.9.9
+
+  internal/build-constants:
+    specifiers: {}
 
   packages/admin-cl:
     specifiers:
