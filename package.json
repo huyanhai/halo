@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "clear": "rm -rf node_modules **/*/node_modules",
-    "lint": "eslint --fix . --ext .js,.ts,.tsx,.vue",
+    "lint": "Diff=$(git diff --diff-filter=d --cached --name-only -- '*.ts' '*.tsx' '*.js' '*.vue') && eslint --fix $Diff --ext .js,.ts,.vue.tsx",
     "gen": "bash script/gen.sh",
     "gen-pkg": "bash script/gen-pkg.sh",
     "esno": "esno ./packages/components/index.ts",
