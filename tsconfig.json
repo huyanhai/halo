@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -16,7 +17,8 @@
     "declaration": true,
     "resolveJsonModule": true,
     "paths": {
-      "tslib": ["node_modules/tslib/tslib.d.ts"]
+      "tslib": ["node_modules/tslib/tslib.d.ts"],
+      "@admin-cl/*": ["packages/*"]
     }
   },
   "ts-node": {
