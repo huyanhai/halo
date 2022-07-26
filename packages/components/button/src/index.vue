@@ -3,15 +3,14 @@
     <slot></slot>
   </button>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { prefix } from '@admin-cl/constants';
-export default defineComponent({
-  name: prefix + 'Button'
-});
-</script>
+
 <script lang="ts" setup>
 import type { PropType } from 'vue';
+import { prefix } from '@admin-cl/constants';
+
+defineOptions({
+  name: `${prefix}Button`
+});
 
 defineProps({
   type: {

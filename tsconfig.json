@@ -16,6 +16,7 @@
     "lib": ["DOM", "DOM.Iterable"],
     "declaration": true,
     "resolveJsonModule": true,
+    "types": ["unplugin-vue-define-options"],
     "paths": {
       "tslib": ["node_modules/tslib/tslib.d.ts"],
       "@admin-cl/*": ["packages/*"]

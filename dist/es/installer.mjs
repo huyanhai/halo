@@ -1,5 +1,5 @@
 import Components from './components.mjs';
-export { version } from './package.mjs';
+export { version } from './constants/index.mjs';
 
 const install = (app) => {
   Components.forEach((component) => {

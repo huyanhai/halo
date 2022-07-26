@@ -13,6 +13,15 @@
     "parser": "@typescript-eslint/parser",
     "sourceType": "module"
   },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "no-undef": "off",
+        "vue/multi-word-component-names": "off"
+      }
+    }
+  ],
   "plugins": ["vue", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",

@@ -3,9 +3,9 @@ import { prefix } from '../../../constants/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
 const _hoisted_1 = { class: "cl-button" };
-const __default__ = defineComponent({
-  name: prefix + "Button"
-});
+const __default__ = {
+  name: `${prefix}Button`
+};
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
   props: {

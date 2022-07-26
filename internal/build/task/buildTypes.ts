@@ -6,25 +6,39 @@ import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import glob from 'fast-glob';
 import { parse, compileScript } from 'vue/compiler-sfc';
 
-import { rootPath, distPath, packagesPath } from '@admin-cl/build-constants';
+import {
+  rootPath,
+  distPath,
+  packagesPath,
+  fullEntryPath,
+  pkgPrefix
+} from '@admin-cl/build-constants';
 
 const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 
 export const buildTypes = async () => {
   const project = new Project({
     tsConfigFilePath: tsconfigPath,
+    skipAddingFilesFromTsConfig: true,
     compilerOptions: {
-      preserveSymlinks: false,
       outDir: resolve(distPath, 'types'),
-      declaration: true
+      preserveSymlinks: false,
+      skipLibCheck: true,
+      noImplicitAny: false
     }
   });
 
-  const filePaths = await glob(['**/*.{ts?(x),vue}'], {
+  const filePaths = await glob(['**/*.{ts?(x),vue}', '!admin-cl/**/*'], {
     ignore: ['**/node_modules/**', '**/__tests__/**', '**/gulpfile.ts'],
     onlyFiles: true,
     absolute: true,
     cwd: packagesPath
+  });
+
+  const fullPaths = await glob('**/*.{ts?(x),vue}', {
+    cwd: fullEntryPath,
+    onlyFiles: true,
+    ignore: ['**/node_modules/**', '**/__tests__/**', '**/gulpfile.ts']
   });
 
   const sourceFiles: SourceFile[] = [];
@@ -56,6 +70,16 @@ export const buildTypes = async () => {
       const source = project.addSourceFileAtPath(filepath);
       sourceFiles.push(source);
     }
+  });
+
+  fullPaths.map(async (file) => {
+    const content = readFileSync(resolve(fullEntryPath, file), 'utf-8');
+    sourceFiles.push(
+      project.createSourceFile(
+        resolve(packagesPath, file),
+        content.replace(`${pkgPrefix}/`, './')
+      )
+    );
   });
 
   sourceFiles.map(async (sourceFile) => {

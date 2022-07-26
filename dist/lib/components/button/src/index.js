@@ -7,9 +7,9 @@ var index = require('../../../constants/index.js');
 var pluginVue_exportHelper = require('../../../_virtual/plugin-vue_export-helper.js');
 
 const _hoisted_1 = { class: "cl-button" };
-const __default__ = vue.defineComponent({
-  name: index.prefix + "Button"
-});
+const __default__ = {
+  name: `${index.prefix}Button`
+};
 const _sfc_main = /* @__PURE__ */ vue.defineComponent({
   ...__default__,
   props: {

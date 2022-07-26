@@ -2,10 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _package = require('../package.js');
-
+const version = "0.0.1";
 const prefix = "Admin";
 
-exports.version = _package.version;
 exports.prefix = prefix;
+exports.version = version;
 //# sourceMappingURL=index.js.map

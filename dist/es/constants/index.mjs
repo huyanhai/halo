@@ -1,6 +1,5 @@
-export { version } from '../package.mjs';
-
+const version = "0.0.1";
 const prefix = "Admin";
 
-export { prefix };
+export { prefix, version };
 //# sourceMappingURL=index.mjs.map

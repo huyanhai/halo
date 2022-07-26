@@ -1,3 +1,2 @@
-export { version } from '../admin-cl/package.json';
-
+export const version = '0.0.1';
 export const prefix = 'Admin';

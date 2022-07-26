@@ -5,8 +5,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.AdminCl = {}, global.Vue));
 })(this, (function (exports, vue) { 'use strict';
 
-  var version$1 = "0.0.2";
-
+  const version$1 = "0.0.1";
   const prefix = "Admin";
 
   var _export_sfc = (sfc, props) => {
@@ -18,11 +17,11 @@
   };
 
   const _hoisted_1 = { class: "cl-button" };
-  const __default__ = vue.defineComponent({
-    name: prefix + "Button"
-  });
+  const __default__$1 = {
+    name: `${prefix}Button`
+  };
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
-    ...__default__,
+    ...__default__$1,
     props: {
       type: {
         type: String,
@@ -55,15 +54,20 @@
     app.component(Button.name, Button);
   };
 
-  const _sfc_main = vue.defineComponent({
-    name: prefix + "Text"
+  const __default__ = {
+    name: `${prefix}Text`
+  };
+  const _sfc_main = /* @__PURE__ */ vue.defineComponent({
+    ...__default__,
+    setup(__props) {
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("div", null, [
+          vue.renderSlot(_ctx.$slots, "default")
+        ]);
+      };
+    }
   });
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("div", null, [
-      vue.renderSlot(_ctx.$slots, "default")
-    ]);
-  }
-  var Text = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "index.vue"]]);
+  var Text = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "index.vue"]]);
 
   Text.install = (app) => {
     app.component(Text.name, Text);

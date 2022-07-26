@@ -1,13 +1,15 @@
-import { rollup } from 'rollup';
-import { resolve } from 'path';
 import type { OutputOptions, ModuleFormat } from 'rollup';
 
+import { parallel } from 'gulp';
+import { rollup } from 'rollup';
+import { resolve } from 'path';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import esbuild from 'rollup-plugin-esbuild';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import DefineOptions from 'unplugin-vue-define-options/rollup';
 
 import {
   fullEntryPath,
@@ -16,10 +18,12 @@ import {
   distPath
 } from '@admin-cl/build-constants';
 
-export const buildFull = async () => {
+const build = async (minify: boolean) => {
   const bundle = await rollup({
     input: resolve(fullEntryPath, 'index.ts'),
+    treeshake: true,
     plugins: [
+      DefineOptions(),
       vue({
         isProduction: true
       }),
@@ -30,6 +34,8 @@ export const buildFull = async () => {
       }),
       commonjs(),
       esbuild({
+        minify,
+        treeShaking: true,
         sourceMap: true,
         target: 'es2018',
         loaders: {
@@ -44,7 +50,7 @@ export const buildFull = async () => {
     [
       {
         format: 'umd' as ModuleFormat,
-        file: resolve(distPath, 'index.full.js'),
+        file: resolve(distPath, minify ? 'index.full.min.js' : 'index.full.js'),
         exports: 'named' as 'default' | 'named' | 'none' | 'auto',
         name: entryName,
         sourcemap: true,
@@ -55,7 +61,10 @@ export const buildFull = async () => {
       },
       {
         format: 'esm' as ModuleFormat,
-        file: resolve(distPath, 'index.full.mjs'),
+        file: resolve(
+          distPath,
+          minify ? 'index.full.min.mjs' : 'index.full.mjs'
+        ),
         sourcemap: false,
         banner: banner
       }
@@ -64,3 +73,8 @@ export const buildFull = async () => {
     })
   );
 };
+
+export const buildFull = parallel(
+  () => build(false),
+  () => build(true)
+);

@@ -3,10 +3,10 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var installer = require('./installer.js');
-var _package = require('./package.js');
+var index = require('./constants/index.js');
 
 const install = installer.install;
-const version = _package.version;
+const version = index.version;
 
 exports["default"] = installer;
 exports.install = install;

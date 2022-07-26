@@ -3,11 +3,11 @@
     <slot></slot>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import { prefix } from '@admin-cl/constants';
-export default defineComponent({
-  name: prefix + 'Text'
+
+defineOptions({
+  name: `${prefix}Text`
 });
 </script>
 <style></style>

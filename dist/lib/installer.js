@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var components = require('./components.js');
-var _package = require('./package.js');
+var index = require('./constants/index.js');
 
 const install = (app) => {
   components["default"].forEach((component) => {
@@ -11,6 +11,6 @@ const install = (app) => {
   });
 };
 
-exports.version = _package.version;
+exports.version = index.version;
 exports.install = install;
 //# sourceMappingURL=installer.js.map

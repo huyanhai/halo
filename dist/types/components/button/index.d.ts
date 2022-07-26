@@ -3,7 +3,29 @@ declare const _default: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
         $data: {};
-        $props: Partial<{}> & Omit<Readonly<import("vue").ExtractPropTypes<{}>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, never>;
+        $props: Partial<{
+            type: "primary" | "ghost" | "dashed" | "link" | "text" | "default";
+            success: boolean;
+            warning: boolean;
+            info: boolean;
+        }> & Omit<Readonly<import("vue").ExtractPropTypes<{
+            type: {
+                type: import("vue").PropType<"primary" | "ghost" | "dashed" | "link" | "text" | "default">;
+                default: string;
+            };
+            success: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            warning: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            info: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+        }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "type" | "success" | "warning" | "info">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -15,9 +37,31 @@ declare const _default: {
         }>;
         $root: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
         $parent: import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null;
-        $emit: ((event: string, ...args: any[]) => void) | ((event: string, ...args: any[]) => void);
+        $emit: (event: string, ...args: any[]) => void;
         $el: any;
-        $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, {}> & {
+        $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
+            type: {
+                type: import("vue").PropType<"primary" | "ghost" | "dashed" | "link" | "text" | "default">;
+                default: string;
+            };
+            success: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            warning: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            info: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+        }>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
+            type: "primary" | "ghost" | "dashed" | "link" | "text" | "default";
+            success: boolean;
+            warning: boolean;
+            info: boolean;
+        }> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
             created?: ((() => void) | (() => void)[]) | undefined;
             beforeMount?: ((() => void) | (() => void)[]) | undefined;
@@ -37,9 +81,48 @@ declare const _default: {
         $forceUpdate: () => void;
         $nextTick: typeof import("vue").nextTick;
         $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
-    } & Readonly<import("vue").ExtractPropTypes<{}>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties;
+    } & Readonly<import("vue").ExtractPropTypes<{
+        type: {
+            type: import("vue").PropType<"primary" | "ghost" | "dashed" | "link" | "text" | "default">;
+            default: string;
+        };
+        success: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        warning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        info: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties;
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
-} & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, import("vue").EmitsOptions, string, {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & Plugin;
+} & import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
+    type: {
+        type: import("vue").PropType<"primary" | "ghost" | "dashed" | "link" | "text" | "default">;
+        default: string;
+    };
+    success: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    warning: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    info: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
+    type: "primary" | "ghost" | "dashed" | "link" | "text" | "default";
+    success: boolean;
+    warning: boolean;
+    info: boolean;
+}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & Plugin;
 export default _default;

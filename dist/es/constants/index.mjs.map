@@ -1,1 +1,1 @@
-{"version":3,"file":"index.mjs","sources":["../../../packages/constants/index.ts"],"sourcesContent":["export { version } from '../admin-cl/package.json';\n\nexport const prefix = 'Admin';\n"],"names":[],"mappings":";;AACY,MAAC,MAAM,GAAG;;;;"}
+{"version":3,"file":"index.mjs","sources":["../../../packages/constants/index.ts"],"sourcesContent":["export const version = '0.0.1';\nexport const prefix = 'Admin';\n"],"names":[],"mappings":"AAAY,MAAC,OAAO,GAAG,QAAQ;AACnB,MAAC,MAAM,GAAG;;;;"}
