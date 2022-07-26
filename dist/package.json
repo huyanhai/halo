@@ -2,7 +2,7 @@
   "name": "admin-cl",
   "author": "",
   "license": "ISC",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "exports": {
