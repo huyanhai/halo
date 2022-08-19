@@ -15,7 +15,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Text = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/text/src/index.vue"]]);
+var Text = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "/Users/yhh/Documents/study/halo/packages/components/text/src/index.vue"]]);
 
 export { Text as default };
 //# sourceMappingURL=index.mjs.map

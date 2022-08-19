@@ -16,7 +16,7 @@ import {
   packagesPath,
   excludes,
   distPath
-} from '@admin-cl/build-constants';
+} from '@halo/build-constants';
 
 export const excludeFiles = (files: string[]) => {
   return files.filter(

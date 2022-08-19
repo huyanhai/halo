@@ -19,7 +19,7 @@ const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     };
   }
 });
-var Text = /* @__PURE__ */ pluginVue_exportHelper["default"](_sfc_main, [["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/text/src/index.vue"]]);
+var Text = /* @__PURE__ */ pluginVue_exportHelper["default"](_sfc_main, [["__file", "/Users/yhh/Documents/study/halo/packages/components/text/src/index.vue"]]);
 
 exports["default"] = Text;
 //# sourceMappingURL=index.js.map

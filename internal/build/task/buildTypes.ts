@@ -12,7 +12,7 @@ import {
   packagesPath,
   fullEntryPath,
   pkgPrefix
-} from '@admin-cl/build-constants';
+} from '@halo/build-constants';
 
 const tsconfigPath = resolve(rootPath, 'tsconfig.json');
 

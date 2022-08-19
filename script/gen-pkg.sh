@@ -42,7 +42,7 @@ EOF
 # writed package.json
 cat > $DIR_NAME/package.json <<EOF
 {
-  "name": "@admin-cl/$NAME",
+  "name": "@halo/$NAME",
   "main": "index.ts",
   "author": "",
   "license": "ISC"

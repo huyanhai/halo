@@ -1,5 +1,5 @@
 {
-  "name": "@admin-cl/build-constants",
+  "name": "@halo/build-constants",
   "main": "index.ts",
   "author": "",
   "license": "ISC"

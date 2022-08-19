@@ -1,6 +1,6 @@
 import type { App } from 'vue';
 import Components from './components';
-import { version } from '@admin-cl/constants';
+import { version } from '@halo/constants';
 
 const install = (app: App): void => {
   Components.forEach((component) => {

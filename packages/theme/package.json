@@ -1,5 +1,5 @@
 {
-  "name": "@admin-cl/theme",
+  "name": "@halo/theme",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "gulp && pnpm run clean"

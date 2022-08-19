@@ -2,7 +2,7 @@ import { defineComponent, openBlock, createElementBlock, renderSlot } from 'vue'
 import { prefix } from '../../../constants/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
-const _hoisted_1 = { class: "cl-button" };
+const _hoisted_1 = { class: "ha-button" };
 const __default__ = {
   name: `${prefix}Button`
 };
@@ -34,7 +34,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "/Users/yhh/Documents/study/admin-cl/packages/components/button/src/index.vue"]]);
+var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "/Users/yhh/Documents/study/halo/packages/components/button/src/index.vue"]]);
 
 export { Button as default };
 //# sourceMappingURL=index.mjs.map

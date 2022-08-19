@@ -16,7 +16,7 @@ import {
   entryName,
   banner,
   distPath
-} from '@admin-cl/build-constants';
+} from '@halo/build-constants';
 
 const build = async (minify: boolean) => {
   const bundle = await rollup({

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const version = "0.0.1";
-const prefix = "Admin";
+const prefix = "Ha";
 
 exports.prefix = prefix;
 exports.version = version;

@@ -19,7 +19,7 @@ function buildTheme() {
     .pipe(
       rename((path) => {
         if (!['index'].includes(path.basename)) {
-          path.basename = `cl-${path.basename}`;
+          path.basename = `ha-${path.basename}`;
         }
       })
     )

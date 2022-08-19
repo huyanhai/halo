@@ -1,6 +1,6 @@
 export const excludes = ['node_modules', 'test', 'mock', 'gulpfile', 'dist'];
-export const entryName = 'AdminCl';
-export const banner = '/********AdminCl********/';
+export const entryName = 'halo';
+export const banner = '/********Halo********/';
 
-export const projectsName = 'admin-cl';
-export const pkgPrefix = '@admin-cl';
+export const projectsName = 'halo';
+export const pkgPrefix = '@halo';

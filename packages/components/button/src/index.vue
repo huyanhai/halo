@@ -1,12 +1,12 @@
 <template>
-  <button class="cl-button">
+  <button class="ha-button">
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { prefix } from '@admin-cl/constants';
+import { prefix } from '@halo/constants';
 
 defineOptions({
   name: `${prefix}Button`

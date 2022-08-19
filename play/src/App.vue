@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <admin-button>123</admin-button>
-  <admin-text>123</admin-text>
+  <ha-button>123</ha-button>
+  <ha-text>123</ha-text>
 </template>
 
 <style scoped>

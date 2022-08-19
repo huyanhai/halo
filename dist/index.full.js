@@ -1,12 +1,12 @@
-/********AdminCl********/
+/********Halo********/
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.AdminCl = {}, global.Vue));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.halo = {}, global.Vue));
 })(this, (function (exports, vue) { 'use strict';
 
   const version$1 = "0.0.1";
-  const prefix = "Admin";
+  const prefix = "Ha";
 
   var _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
@@ -16,7 +16,7 @@
     return target;
   };
 
-  const _hoisted_1 = { class: "cl-button" };
+  const _hoisted_1 = { class: "ha-button" };
   const __default__$1 = {
     name: `${prefix}Button`
   };

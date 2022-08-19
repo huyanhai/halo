@@ -42,7 +42,7 @@ cat > $DIR_NAME/src/index.vue <<EOF
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { clPrefixName } from '@admin-cl/constants';
+import { clPrefixName } from '@halo/constants';
 export default defineComponent({
   name: clPrefixName + '$NORMALIZED_NAME'
 });

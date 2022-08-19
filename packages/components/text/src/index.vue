@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { prefix } from '@admin-cl/constants';
+import { prefix } from '@halo/constants';
 
 defineOptions({
   name: `${prefix}Text`
